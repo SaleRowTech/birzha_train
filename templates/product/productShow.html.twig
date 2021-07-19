@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Here info abount single product</h1>
+<ul>
+        <li>{{ product.id }}</li>
+        <li>{{ product.name }}</li>
+        <li>{{ product.price }}</li>
+        <a href="../list">Back</a>
+</ul>
+{% endblock %}
