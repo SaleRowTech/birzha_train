@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,5 +76,21 @@ class ProductController extends AbstractController
         $dm->flush();
 
         return $this->redirectToRoute('productList');
+    }
+
+    /**
+     * @Route("/user/list", name="userList")
+     */
+    public function usersListAction(EntityManager $em)
+    {
+        $users = $em->getRepository(User::class)->findAll();
+
+        if (! $users) {
+            throw $this->createNotFoundException('No user found in DB');
+        }
+
+        return $this->render('users/listAction.html.twig', [
+            'users' => $users,
+        ]);
     }
 }
