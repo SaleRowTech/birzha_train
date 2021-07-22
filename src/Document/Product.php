@@ -25,7 +25,7 @@ class Product
     protected $price;
 
     /**
-     * @MongoDB\Field(type="date")
+     * @MongoDB\Field(type="string")
      */
     protected $dateChecked;
 
