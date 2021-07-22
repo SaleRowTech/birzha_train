@@ -79,4 +79,17 @@ class ProductController extends AbstractController
         return $this->redirectToRoute('productList');
     }
 
+    /**
+     * @Route("/product/check/{id}", name="productCheck")
+     */
+    public function checkAction(DocumentManager $dm, $id)
+    {
+        $product = $dm->getRepository(Product::class)->find($id);
+        $date = new \DateTime('now');
+        $product->setDateChecked($date);
+
+        return $this->redirectToRoute('productList');
+    }
+
+
 }

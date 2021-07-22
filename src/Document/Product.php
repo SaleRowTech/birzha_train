@@ -24,7 +24,10 @@ class Product
      */
     protected $price;
 
-
+    /**
+     * @MongoDB\Field(type="date")
+     */
+    protected $dateChecked;
 
     /**
      * @return mixed
@@ -72,6 +75,24 @@ class Product
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateChecked()
+    {
+        return $this->dateChecked;
+    }
+
+    /**
+     * @param mixed $dateChecked
+     */
+    public function setDateChecked($dateChecked): self
+    {
+        $this->dateChecked = $dateChecked;
+
+        return $this;
     }
 
 }
