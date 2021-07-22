@@ -27,6 +27,7 @@ class ProductController extends AbstractController
         $product = new Product();
         $product->setName('A sdfsdf');
         $product->setPrice('199.999');
+        $product->setDateChecked('21.10.1999');
 
         $dm->persist($product);
         $dm->flush();
