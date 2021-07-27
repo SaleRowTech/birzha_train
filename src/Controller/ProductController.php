@@ -29,8 +29,9 @@ class ProductController extends AbstractController
         $product->setPrice('199.999');
         $product->setDateChecked(new \DateTime());
 
-        $dm->persist($product);
-        $dm->flush();
+        dump($product);
+       // $dm->persist($product);
+        //$dm->flush();
 
         //return new Response('Created product id ' . $product->getId());
         return $this->redirectToRoute('productList');
