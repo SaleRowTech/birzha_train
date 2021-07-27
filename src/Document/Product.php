@@ -27,7 +27,7 @@ class Product
 
     /**
      * @Assert\DateTime()
-     * @MongoDB\Field(type="datetime")
+     * @MongoDB\Field(type="date")
      */
     protected $dateChecked;
 
