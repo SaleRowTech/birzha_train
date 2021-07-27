@@ -27,7 +27,7 @@ class ProductController extends AbstractController
         $product = new Product();
         $product->setName('A sdfsdf');
         $product->setPrice('199.999');
-        $product->setDateChecked('21.10.1999');
+        $product->setDateChecked(new \DateTime());
 
         $dm->persist($product);
         $dm->flush();
@@ -86,7 +86,7 @@ class ProductController extends AbstractController
     public function checkAction(DocumentManager $dm, $id)
     {
         $product = $dm->getRepository(Product::class)->find($id);
-        $date = new \DateTime('now');
+        $date = new \DateTime();
         $product->setDateChecked($date);
 
         return $this->redirectToRoute('productList');

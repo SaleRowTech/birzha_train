@@ -3,6 +3,7 @@
 namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @MongoDB\Document
@@ -25,7 +26,8 @@ class Product
     protected $price;
 
     /**
-     * @MongoDB\Field(type="string")
+     * @Assert\DateTime()
+     * @MongoDB\Field(type="datetime")
      */
     protected $dateChecked;
 
