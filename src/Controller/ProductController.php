@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Message\CheckProduct;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Document\Product;
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -86,13 +88,11 @@ class ProductController extends AbstractController
     /**
      * @Route("/product/check/{id}", name="productCheck")
      */
-    public function checkAction(DocumentManager $dm, $id)
+    public function checkAction($id, MessageBusInterface $messageBus)
     {
-        $product = $dm->getRepository(Product::class)->find($id);
-        $date = new \DateTime();
-        $product->setDateChecked($date);
-        $dm->persist($product);
-        $dm->flush();
+        $message = new CheckProduct($id);
+        $messageBus->dispatch($message);
+
         return $this->redirectToRoute('productList');
     }
 
