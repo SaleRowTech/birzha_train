@@ -9,22 +9,22 @@ use App\Document\Product;
 class CheckProduct
 {
     /**
-     * @var int
+     * @var string
      */
     private $productID;
 
     /**
      * CheckProduct constructor.
      */
-    public function __construct(int $productID)
+    public function __construct(string $productID)
     {
         $this->productID = $productID;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getProductID(): int
+    public function getProductID(): string
     {
         return $this->productID;
     }
