@@ -19,8 +19,10 @@ class ProductController extends AbstractController
     {
         return $this->redirectToRoute('productList');
     }
+
     /**
      * @Route("/product/create", name="productCreate")
+     * @throws \Doctrine\ODM\MongoDB\MongoDBException
      */
     public function createAction(DocumentManager $dm)
     {
@@ -29,9 +31,9 @@ class ProductController extends AbstractController
         $product->setPrice('199.999');
         $product->setDateChecked(new \DateTime());
 
-        dump($product);
-       // $dm->persist($product);
-        //$dm->flush();
+
+        $dm->persist($product);
+        $dm->flush();
 
         //return new Response('Created product id ' . $product->getId());
         return $this->redirectToRoute('productList');
