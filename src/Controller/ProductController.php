@@ -91,7 +91,8 @@ class ProductController extends AbstractController
         $product = $dm->getRepository(Product::class)->find($id);
         $date = new \DateTime();
         $product->setDateChecked($date);
-
+        $dm->persist($product);
+        $dm->flush();
         return $this->redirectToRoute('productList');
     }
 
