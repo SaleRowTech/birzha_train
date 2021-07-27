@@ -10,7 +10,14 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
+    public function registerBundles()
+    {
+        $bundles = array(
+            new Enqueue\Bundle\EnqueueBundle(),
+        );
 
+
+    }
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');
