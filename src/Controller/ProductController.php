@@ -11,6 +11,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Document\Product;
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Enqueue\Mongodb\MongodbConnectionFactory;
 
 class ProductController extends AbstractController
 {
@@ -90,6 +91,7 @@ class ProductController extends AbstractController
      */
     public function checkAction($id, MessageBusInterface $messageBus)
     {
+        $connectionFactory = new MongodbConnectionFactory();
         $message = new CheckProduct($id);
         $messageBus->dispatch($message);
 
