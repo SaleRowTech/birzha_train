@@ -3,15 +3,15 @@
 {% block body %}
 {#{{ dump(bets) }}#}
     {% for row in bets %}
-         {% for key, value in row %}
-        {{ dump(value) }}
+
+        {{ dump(row) }}
 
 
 {#        <li>{{ value.bet }}</li>#}
 {#        <li>{{ value.date }}</li>#}
 
 
-        {% endfor %}
+
     {% endfor %}
 {#    {% for row in bets %}#}
 {#        <h3>Id - {{ row.0 }}</h3>#}
