@@ -90,18 +90,20 @@ class AuctionController extends AbstractController
             $date = new \DateTime('@'.strtotime('now'));
             $unique = Uuid::uuid4();
             $array = [
-                "betId" => $unique,
-                "bet" => $data['bet'],
-                "date"=> $date,
-                "user" => $user->getId(),
+                $unique =>[
+                    "betId" => $unique,
+                    "bet" => $data['bet'],
+                    "date"=> $date,
+                    "user" => $user->getId(),
+                ]
             ];
             //dd(json_encode($array));
-            $bets = json_decode($auction->getBets());
-            $collection = [
-                array_merge($array, (array)$bets)
-            ];
+           // $bets = json_decode($auction->getBets());
+           // $collection = [
+          //      array_merge($array, (array)$bets)
+         //   ];
 
-            dd($collection);
+           // dd($collection);
             $auction->setBets(json_encode($array));
 
 
