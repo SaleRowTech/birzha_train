@@ -32,7 +32,7 @@ class Auction
 //    protected $dateOfBet ;
 
     /**
-     * @MongoDB\Field(type="collection")
+     * @MongoDB\Field(type="array")
      */
     protected $bets;
 
