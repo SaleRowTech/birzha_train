@@ -2,9 +2,9 @@
 
 {% block body %}
 
-
-    {{ auction.name }}
-    {{ auction.minPrice }}
+    <br><br>
+    <h1>Аукцион - {{ auction.name }}</h1>
+    <h3>Минимальная ставка - {{ auction.minPrice }}</h3>
     <a class="btn btn-default" href="../" type="button"><div class="btn-group-vertical">Back</div></a>
     {{ form_start(form) }}
     {{ form(form) }}

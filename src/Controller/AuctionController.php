@@ -70,7 +70,7 @@ class AuctionController extends AbstractController
        // dd($auction->getMinPrice());
         $form = $this->createFormBuilder()
             ->add('bet', IntegerType::class, array(
-                'label' => 'Минимальная ставка'
+                'label' => 'Ваша ставка'
             ))
             ->add('send', SubmitType::class)
             ->getForm();
