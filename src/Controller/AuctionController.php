@@ -102,9 +102,8 @@ class AuctionController extends AbstractController
             if ($bets === null){
                 $collection = $array;
             }else{
-                $arrayBets = (array)$bets;
                 $collection = [
-                    array_merge($array, $arrayBets)
+                    array_merge($array, (array)$bets)
                 ];
             }
 
