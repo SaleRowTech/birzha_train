@@ -59,4 +59,13 @@ class AuctionController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/auction/{id}/bet", name="auctionBet")
+     */
+    public function bet(DocumentManager $dm, string $id): Response
+    {
+
+    }
+
 }
