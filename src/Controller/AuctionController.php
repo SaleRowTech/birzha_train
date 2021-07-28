@@ -130,7 +130,7 @@ class AuctionController extends AbstractController
         $bets = json_decode($auction->getBets());
 
         return $this->render('auction/bet/bets.html.twig', [
-            'bets' => $bets,
+            'bets' => $bets[0],
         ]);
     }
 

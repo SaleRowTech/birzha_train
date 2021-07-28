@@ -2,4 +2,10 @@
 
 {% block body %}
     {{ dump(bets) }}
+    {% for row in bets %}
+        <h1>Amount - {{ row.bet }}</h1>
+        <h3>Date - {{ row.date }}</h3>
+        <a href="/auction">К списку Аукционов</a>
+
+    {% endfor %}
 {% endblock %}
