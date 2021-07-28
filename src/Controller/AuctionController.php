@@ -90,6 +90,7 @@ class AuctionController extends AbstractController
         //$form->handleRequest($request);
         return $this->render('/auction/bet/form_create.html.twig', [
             'form' => $form->createView(),
+            'auction' => $auction,
         ]);
     }
 
