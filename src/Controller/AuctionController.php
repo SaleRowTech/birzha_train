@@ -135,4 +135,16 @@ class AuctionController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/auction/delete/{id}", name="AuctionDelete")
+     */
+    public function deleteAction(DocumentManager $dm, $id)
+    {
+        $auction = $dm->getRepository(Product::class)->find($id);
+
+        $dm->remove($auction);
+        $dm->flush();
+
+        return $this->redirectToRoute('auction');
+    }
 }
