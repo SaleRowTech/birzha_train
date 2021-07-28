@@ -25,7 +25,6 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/product/create", name="productCreate")
-     * @throws \Doctrine\ODM\MongoDB\MongoDBException
      */
     public function createAction(DocumentManager $dm)
     {
