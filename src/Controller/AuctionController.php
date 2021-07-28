@@ -37,7 +37,7 @@ class AuctionController extends AbstractController
         return $this->redirectToRoute('productList');
     }
     /**
-     * @Route("/admin/vo/create", name="create")
+     * @Route("/auction/create", name="create")
      */
     public function create(Request $request, DocumentManager $dm): Response
     {
