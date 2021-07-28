@@ -88,12 +88,12 @@ class AuctionController extends AbstractController
             $data = $form->getData();
             $date = new \DateTime('@'.strtotime('now'));
             //$unique = Uuid::uuid4();
-            $array = [
+            $array[$user->getId()] = [
                 "bet" => $data['bet'],
                 "date"=> $date,
             ];
            // dd($array);
-            $auction->setBets($array[$user->getId()]);
+            $auction->setBets($array);
 
 
             $dm->persist($auction);
