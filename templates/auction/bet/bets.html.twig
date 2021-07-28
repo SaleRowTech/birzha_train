@@ -4,9 +4,11 @@
 {#{{ dump(bets) }}#}
     {% for key, value in bets %}
 
-            {{ dump(value) }}
+
+        {% for k, v in value %}
+            {{ dump(v) }}
         <li>{{ key }}</li>
-      
+
 {#        <li>{{ value.bet }}</li>#}
 {#        <li>{{ value.date }}</li>#}
 
