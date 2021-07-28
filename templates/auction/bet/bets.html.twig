@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ dump(bets) }}
 
     {% for key, bet in bets %}
-        <h3>id - {{ key }}</h3>
-        <h3>Amount - {{ bet.bet }}</h3>
-{#        <h3>Date - {{ bet.date }}</h3>#}
+        <h4>id - {{ key }}</h4>
+        <h4>Amount - {{ bet.bet }}</h4>
+        {% for row in bet %}
+            <h3>Date - {{ row.date }}</h3>
+        {% endfor %}
+        <br><br>
     {% endfor %}
 
 
