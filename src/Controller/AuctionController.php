@@ -108,7 +108,7 @@ class AuctionController extends AbstractController
             }
 
 
-            dd($collection);
+            //dd($collection);
             $auction->setBets(json_encode($collection));
 
 
