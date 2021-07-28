@@ -94,7 +94,7 @@ class AuctionController extends AbstractController
                 "date"=> $date,
                 "user" => $user->getId(),
             ];
-            dd($array);
+            dd(json_encode($array));
             $auction->setBets($array);
 
 
