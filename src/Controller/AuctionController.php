@@ -9,6 +9,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+
 class AuctionController extends AbstractController
 {
     /**
@@ -20,23 +29,7 @@ class AuctionController extends AbstractController
             'controller_name' => 'AuctionController',
         ]);
     }
-    /**
-     * @Route("/product/create", name="productCreate")
-     */
-    public function createAction(DocumentManager $dm)
-    {
-        $product = new Auction();
-        $product->setName('A sdfsdf');
-        $product->setPrice('199.999');
-        $product->setDateChecked(new \DateTime());
-
-
-        $dm->persist($product);
-        $dm->flush();
-
-        //return new Response('Created product id ' . $product->getId());
-        return $this->redirectToRoute('productList');
-    }
+   
     /**
      * @Route("/auction/create", name="create")
      */
