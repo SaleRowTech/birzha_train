@@ -83,7 +83,7 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
-            $date = new \DateTime("YYYY-mm-ddTHH:MM:ssZ");
+            $date = new \DateTime("Y-m-d H:i:s");
             $auction->setBets([
                 "bet" => $data['bet'],
                 "date"=> $date,
