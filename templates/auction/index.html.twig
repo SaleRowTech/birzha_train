@@ -3,11 +3,14 @@
 {% block title %}Hello AuctionController!{% endblock %}
 
 {% block body %}
-    <a class="btn btn-default" href="/create" type="button"><div class="btn-group-vertical">Create Auction</div></a>
+    <br><br>
+    <a class="btn btn-default" href="/auction/create" type="button"><div class="btn-group-vertical">Create Auction</div></a>
 
     {% for row in auctions %}
-    <h1>{{ row.name }}</h1>
-    <h3>{{ row.minPrice }}</h3>
+    <h1>name - {{ row.name }}</h1>
+    <h3>min price - {{ row.minPrice }}</h3>
+        <a href="/">Сделать ставку</a>
+
     {% endfor %}
 
 
