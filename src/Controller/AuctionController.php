@@ -140,7 +140,7 @@ class AuctionController extends AbstractController
      */
     public function deleteAction(DocumentManager $dm, $id)
     {
-        $auction = $dm->getRepository(Product::class)->find($id);
+        $auction = $dm->getRepository(Auction::class)->find($id);
 
         $dm->remove($auction);
         $dm->flush();
