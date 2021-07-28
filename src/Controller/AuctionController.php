@@ -90,10 +90,10 @@ class AuctionController extends AbstractController
             $date = new \DateTime('@'.strtotime('now'));
             $unique = Uuid::uuid4();
             $array = [
-                $unique =>[
+                (string)$unique =>[
                     "bet" => $data['bet'],
                     "date"=> $date,
-                    //"user" => $user->getId(),
+                    "user" => $user->getId(),
                 ]
             ];
             //dd(json_encode($array));
