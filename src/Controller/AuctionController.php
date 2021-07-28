@@ -93,7 +93,7 @@ class AuctionController extends AbstractController
                 $unique =>[
                     "bet" => $data['bet'],
                     "date"=> $date,
-                    "user" => $user->getId(),
+                    //"user" => $user->getId(),
                 ]
             ];
             //dd(json_encode($array));
