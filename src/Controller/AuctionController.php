@@ -86,7 +86,7 @@ class AuctionController extends AbstractController
             $date = new \DateTime();
             $auction->setBets([
                 "bet" => $data['bet'],
-                "date"=> $date,
+                "date"=> "31.10.1999",
             ]);
 
 
