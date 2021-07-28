@@ -6,7 +6,7 @@
         <h4>id - {{ key }}</h4>
         <h4>Amount - {{ bet.bet }}</h4>
         {% for row in bet.date %}
-            <h3>Date - {{ row.date }}</h3>
+            <h3>Date - {{ row.date |date("F j, Y") }}</h3>
         {% endfor %}
         <br><br>
     {% endfor %}
