@@ -82,7 +82,7 @@ class AuctionController extends AbstractController
                     'readonly' => true,
                 ),
             ))
-            ->add('bet', IntegerType::class)
+            //->add('bet', IntegerType::class)
             ->add('send', SubmitType::class)
             ->getForm();
 
