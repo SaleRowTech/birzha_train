@@ -73,7 +73,11 @@ class AuctionController extends AbstractController
             ->add('send', SubmitType::class)
             ->getForm();
 
+
         //$form->handleRequest($request);
+        return $this->render('/auction/bet/form_create.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
 }

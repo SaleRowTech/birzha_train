@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+    <a class="btn btn-default" href="../" type="button"><div class="btn-group-vertical">Back</div></a>
+    {{ form_start(form) }}
+    {{ form(form) }}
+    {{ form_end(form) }}
+
+    <a href="/auction">Back to Auctions</a>
+{% endblock %}
