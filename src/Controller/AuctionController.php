@@ -65,7 +65,15 @@ class AuctionController extends AbstractController
      */
     public function bet(DocumentManager $dm, string $id): Response
     {
+        $auction = $dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
+        dump($auction);
+        $form = $this->createFormBuilder()
+            ->add('name', TextType::class)
+            ->add('minPrice', IntegerType::class)
+            ->add('send', SubmitType::class)
+            ->getForm();
 
+        $form->handleRequest($request);
     }
 
 }

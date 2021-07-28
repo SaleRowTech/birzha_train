@@ -26,10 +26,16 @@ class Auction
      */
     protected $minPrice;
 
+//    /**
+//     * @MongoDB\Field(type="date")
+//     */
+//    protected $dateOfBet ;
+
     /**
-     * @MongoDB\Field(type="date")
+     * @MongoDB\Field(type="json")
      */
-    protected $dateOfBet ;
+    protected $bets;
+
 
     /**
      * @return mixed
@@ -89,22 +95,40 @@ class Auction
 
     }
 
+//    /**
+//     * @return mixed
+//     */
+//    public function getDateOfBet()
+//    {
+//        return $this->dateOfBet;
+//    }
+//
+//    /**
+//     * @param mixed $dateOfBet
+//     */
+//    public function setDateOfBet($dateOfBet): self
+//    {
+//        $this->dateOfBet = $dateOfBet;
+//
+//        return $this;
+//
+//    }
+
     /**
      * @return mixed
      */
-    public function getDateOfBet()
+    public function getBets()
     {
-        return $this->dateOfBet;
+        return $this->bets;
     }
 
     /**
-     * @param mixed $dateOfBet
+     * @param mixed $bets
      */
-    public function setDateOfBet($dateOfBet): self
+    public function setBets($bets): self
     {
-        $this->dateOfBet = $dateOfBet;
+        $this->bets = $bets;
 
         return $this;
-
     }
 }
