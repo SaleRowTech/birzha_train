@@ -4,6 +4,9 @@
 namespace App\Message;
 
 
+use App\Document\Auction;
+use App\Entity\User;
+
 class AddBet
 {
     private $data;
@@ -13,7 +16,7 @@ class AddBet
     /**
      * AddBet constructor.
      */
-    public function __construct($data, $user, $auction)
+    public function __construct($data,User $user, Auction $auction)
     {
         $this->data = $data;
         $this->user = $user;
@@ -27,18 +30,13 @@ class AddBet
         return $this->data;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getUser()
+    public function getUser():User
     {
         return $this->user;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAuction()
+
+    public function getAuction(): Auction
     {
         return $this->auction;
     }
