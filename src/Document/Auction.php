@@ -32,7 +32,7 @@ class Auction
 //    protected $dateOfBet ;
 
     /**
-     * @MongoDB\Field(type="mixed")
+     * @MongoDB\Field(type="collection")
      */
     protected $bets;
 
