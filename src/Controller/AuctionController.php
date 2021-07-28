@@ -89,7 +89,7 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
-            $message = new AddBet($data, $user, $id);
+            $message = new AddBet($data, $user, $auction);
             $messageBus->dispatch($message);
 
 

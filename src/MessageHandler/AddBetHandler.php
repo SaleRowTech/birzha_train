@@ -27,8 +27,7 @@ class AddBetHandler implements MessageHandlerInterface
     {
         $data = $addBet->getData();
         $user = $addBet->getUser();
-        $id = $addBet->getId();
-        $auction = $this->dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
+        $auction = $addBet->getAuction();
         $date = new \DateTime('@'.strtotime('now'));
         $unique = Uuid::uuid4();
         $array = [

@@ -8,16 +8,16 @@ class AddBet
 {
     private $data;
     private $user;
-    private $id;
+    private $auction;
 
     /**
      * AddBet constructor.
      */
-    public function __construct($data, $user, $id)
+    public function __construct($data, $user, $auction)
     {
         $this->data = $data;
         $this->user = $user;
-        $this->id = $id;
+        $this->auction = $auction;
     }
     /**
      * @return mixed
@@ -38,9 +38,9 @@ class AddBet
     /**
      * @return mixed
      */
-    public function getId()
+    public function getAuction()
     {
-        return $this->id;
+        return $this->auction;
     }
 
 }
