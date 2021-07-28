@@ -104,7 +104,7 @@ class AuctionController extends AbstractController
             }else{
                 $arrayBets = (array)$bets;
                 $collection = [
-                    array_merge($array, $arrayBets[0])
+                    array_merge($array, $arrayBets)
                 ];
             }
 
