@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Document\Auction;
 
+use App\Message\AddBet;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 
@@ -10,6 +11,7 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\GreaterThan;
 
@@ -67,7 +69,7 @@ class AuctionController extends AbstractController
     /**
      * @Route("/auction/{id}/bet", name="auctionBet")
      */
-    public function bet(Request $request, DocumentManager $dm, string $id): Response
+    public function bet(Request $request, DocumentManager $dm, string $id,MessageBusInterface $messageBus): Response
     {
         $user = $this->getUser();
         $auction = $dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
@@ -87,6 +89,10 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
+//            $message = new AddBet($data);
+//            $messageBus->dispatch($message);
+
+
             $date = new \DateTime('@'.strtotime('now'));
             $unique = Uuid::uuid4();
             $array = [
