@@ -3,9 +3,12 @@
 {% block body %}
 
     {% for row in bets %}
-        <h1>Amount - {{ row.bet }}</h1>
+        <h3>Id - {{ row.id }}</h3>
+        {% for bet in row %}
+        <h3>Amount - {{ row.bet }}</h3>
         <h3>Date - {{ row.date }}</h3>
         <a href="/auction">К списку Аукционов</a>
 
+        {% endfor %}
     {% endfor %}
 {% endblock %}
