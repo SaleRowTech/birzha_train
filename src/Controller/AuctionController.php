@@ -92,7 +92,7 @@ class AuctionController extends AbstractController
                 "bet" => $data['bet'],
                 "date"=> $date,
             ];
-            dd($array);
+           // dd($array);
             $auction->setBets($array);
 
 
