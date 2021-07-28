@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Document\Auction;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+use http\Client\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
