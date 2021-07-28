@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ dump(bets) }}
+{#{{ dump(bets) }}#}
+    {% for key, value in bets %}
+        <li>{{ key }}</li>
+        <li>{{ value.bet }}</li>
+        <li>{{ value.date }}</li>
+    {% endfor %}
 {#    {% for row in bets %}#}
-{#        <h3>Id - {{ row.id }}</h3>#}
+{#        <h3>Id - {{ row.0 }}</h3>#}
 {#        {% for bet in row %}#}
 {#        <h3>Amount - {{ row.bet }}</h3>#}
 {#        <h3>Date - {{ row.date }}</h3>#}
