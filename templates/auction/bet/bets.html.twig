@@ -10,10 +10,12 @@
 
 
 
-
-{{ dump(bets) }}
-    {% for value in bets %}
-    {{ dump(value) }}
+    {% for key, bet in bets %}
+        <li>{{ key }}: {{ bet.bet|e }}</li>
+    {% endfor %}
+{#{{ dump(bets) }}#}
+{#    {% for value in bets %}#}
+{#    {{ dump(value) }}#}
 
 {#        <h3>Amount - {{ value.bet }}</h3>#}
 {#        <h3>Date - {{ value.date }}</h3>#}
