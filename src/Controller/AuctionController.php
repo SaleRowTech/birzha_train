@@ -66,6 +66,7 @@ class AuctionController extends AbstractController
      */
     public function bet(Request $request, DocumentManager $dm, string $id): Response
     {
+        $user = $this->getUser();
         $auction = $dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
         //dd($auction);
        // dd($auction->getMinPrice());
@@ -85,6 +86,7 @@ class AuctionController extends AbstractController
             $data = $form->getData();
             $date = new \DateTime('@'.strtotime('now'));
             $auction->setBets([
+                "user" => $user->getId(),
                 "bet" => $data['bet'],
                 "date"=> $date,
             ]);
