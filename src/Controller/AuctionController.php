@@ -83,7 +83,10 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
-            $auction->setBets($data['bet']);
+            $auction->setBets([
+                "bet" => $data['bet'],
+                "date"=> new \DateTime(),
+            ]);
 
 
             $dm->persist($auction);
