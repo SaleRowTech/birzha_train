@@ -87,12 +87,14 @@ class AuctionController extends AbstractController
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
             $date = new \DateTime('@'.strtotime('now'));
-            //$unique = Uuid::uuid4();
-            $array[$user->getId()] = [
+            $unique = Uuid::uuid4();
+            $array = [
+                "betId" => $unique,
                 "bet" => $data['bet'],
                 "date"=> $date,
+                "user" => $user->getId(),
             ];
-           // dd($array);
+            dd($array);
             $auction->setBets($array);
 
 
