@@ -63,7 +63,7 @@ class AuctionController extends AbstractController
     /**
      * @Route("/auction/{id}/bet", name="auctionBet")
      */
-    public function bet(DocumentManager $dm, string $id): Response
+    public function bet(Request $request, DocumentManager $dm, string $id): Response
     {
         $auction = $dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
         dump($auction);
@@ -73,7 +73,7 @@ class AuctionController extends AbstractController
             ->add('send', SubmitType::class)
             ->getForm();
 
-        $form->handleRequest($request);
+        //$form->handleRequest($request);
     }
 
 }
