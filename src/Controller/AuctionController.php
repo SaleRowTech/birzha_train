@@ -91,7 +91,6 @@ class AuctionController extends AbstractController
             $unique = Uuid::uuid4();
             $array = [
                 $unique =>[
-                    "betId" => $unique,
                     "bet" => $data['bet'],
                     "date"=> $date,
                     "user" => $user->getId(),
