@@ -19,10 +19,30 @@ class AuctionController extends AbstractController
     /**
      * @Route("/auction", name="auction")
      */
-    public function index(): Response
+    public function index(DocumentManager $dm): Response
     {
+        $auctions = $dm->getRepository(Auction::class)->findAll();
+        if (! $auctions) {
+            throw $this->createNotFoundException('No auctions found in DB');
+        }
         return $this->render('auction/index.html.twig', [
-            'controller_name' => 'AuctionController',
+            'auctions' => $auctions,
+
+        ]);
+    }
+    /**
+     * @Route("/product/list", name="productList")
+     */
+    public function listAction(DocumentManager $dm)
+    {
+        $products = $dm->getRepository(Product::class)->findAll();
+
+        if (! $products) {
+            throw $this->createNotFoundException('No product found in DB');
+        }
+
+        return $this->render('product/productList.html.twig', [
+            'products' => $products,
         ]);
     }
 
@@ -48,7 +68,6 @@ class AuctionController extends AbstractController
 
             $dm->persist($auction);
             $dm->flush();
-
         }
 
         return $this->render('/auction/form_create.html.twig', [
