@@ -37,9 +37,9 @@ class AddBetHandler implements MessageHandlerInterface
                 "user" => $user->getId(),
             ]
         ];
-        if ($bets = json_decode($auction->getBets()) === null){
-            $collection = $array;
-        }
+        $bets = json_decode($auction->getBets());
+
+
 
         if ($bets === null){
             $collection = $array;
