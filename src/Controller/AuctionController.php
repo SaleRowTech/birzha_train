@@ -57,7 +57,6 @@ class AuctionController extends AbstractController
 
         return $this->render('/auction/form_create.html.twig', [
             'form' => $form->createView(),
-        ],
-        $this->redirectToRoute('auction'));
+        ]);
     }
 }
