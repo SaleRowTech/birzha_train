@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Document\Auction;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
@@ -96,11 +97,11 @@ class AuctionController extends AbstractController
             ];
             //dd(json_encode($array));
             $bets = json_decode($auction->getBets());
-            $bets += [
-                "betId" => 1
-            ];
+            $collection = new ArrayCollection(
+                array_merge($array->toArray(), $bets->toArray())
+            );
 
-            dd($bets);
+            dd($collection);
             $auction->setBets(json_encode($array));
 
 
