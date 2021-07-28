@@ -85,11 +85,13 @@ class AuctionController extends AbstractController
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
             $date = new \DateTime('@'.strtotime('now'));
-            $auction->setBets([
+            $array = [
                 "user" => $user->getId(),
                 "bet" => $data['bet'],
                 "date"=> $date,
-            ]);
+            ];
+            dd($array);
+            $auction->setBets();
 
 
             $dm->persist($auction);
