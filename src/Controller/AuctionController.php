@@ -96,6 +96,8 @@ class AuctionController extends AbstractController
             ];
             //dd(json_encode($array));
             $bets = json_decode($auction->getBets());
+            $bets += $array;
+
             dd($bets);
             $auction->setBets(json_encode($array));
 
