@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+{{ dump(bets) }}
     {% for row in bets %}
         <h3>Id - {{ row.id }}</h3>
         {% for bet in row %}
