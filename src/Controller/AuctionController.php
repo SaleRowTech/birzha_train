@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -70,8 +71,10 @@ class AuctionController extends AbstractController
        // dd($auction->getMinPrice());
         $form = $this->createFormBuilder()
             ->add('bet', IntegerType::class, array(
+                'constraints' => new GreaterThan($auction->getMinPrice()),
                 'label' => 'Ваша ставка'
             ))
+
             ->add('send', SubmitType::class)
             ->getForm();
 
