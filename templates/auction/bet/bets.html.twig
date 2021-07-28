@@ -5,7 +5,7 @@
     {% for key, bet in bets %}
         <h4>id - {{ key }}</h4>
         <h4>Amount - {{ bet.bet }}</h4>
-        {% for row in bet %}
+        {% for row in bet.date %}
             {{ dump(row) }}
 {#            <h3>Date - {{ row.date }}</h3>#}
         {% endfor %}
