@@ -117,4 +117,22 @@ class AuctionController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @Route("/auction/{id}/betList", name="betList")
+     */
+    public function betList(DocumentManager $dm, string $id): Response
+    {
+        $auction = $dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
+        if (! $auction) {
+            throw $this->createNotFoundException('No such auction found in DB');
+        }
+        $bets = json_encode($auction->getBets());
+
+        return $this->render('auction/index.html.twig', [
+            'bets' => $bets,
+
+        ]);
+    }
+
 }
