@@ -68,21 +68,10 @@ class AuctionController extends AbstractController
         $auction = $dm->getRepository(Auction::class)->findOneBy(['id' => $id]);
         //dd($auction);
        // dd($auction->getMinPrice());
-
-        $form = $this->createFormBuilder($auction)
-            ->add('name', TextType::class, array(
-                'label' => 'Auction',
-                'attr' => array(
-                    'readonly' => true,
-                ),
+        $form = $this->createFormBuilder()
+            ->add('bet', IntegerType::class, array(
+                'label' => 'Минимальная ставка'
             ))
-            ->add('minPrice', IntegerType::class, array(
-                'label' => 'Минимальная ставка',
-                'attr' => array(
-                    'readonly' => true,
-                ),
-            ))
-            //->add('bet', IntegerType::class)
             ->add('send', SubmitType::class)
             ->getForm();
 
