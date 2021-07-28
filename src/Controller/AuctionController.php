@@ -127,11 +127,10 @@ class AuctionController extends AbstractController
         if (! $auction) {
             throw $this->createNotFoundException('No such auction found in DB');
         }
-        $bets = json_encode($auction->getBets());
+        $bets = json_decode($auction->getBets());
 
         return $this->render('auction/bet/bets.html.twig', [
             'bets' => $bets,
-
         ]);
     }
 
