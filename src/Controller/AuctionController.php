@@ -103,14 +103,14 @@ class AuctionController extends AbstractController
                 $collection = $array;
             }else{
                 //dd($bets);
-                $collection = [
+                $collectionBefore = [
                     array_merge($array, (array)$bets)
                 ];
-                dd($collection);
+                $collection=$collectionBefore[0];
             }
 
 
-            //dd($collection);
+            dd($collection);
             $auction->setBets(json_encode($collection));
 
 
