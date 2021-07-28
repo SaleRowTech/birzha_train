@@ -3,7 +3,7 @@
 {% block body %}
 {#{{ dump(bets) }}#}
     {% for key, value in bets %}
-        {% for key, value in value %}
+        {% for key, item in value %}
         <li>{{ key }}</li>
 {#        <li>{{ value.bet }}</li>#}
 {#        <li>{{ value.date }}</li>#}
