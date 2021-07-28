@@ -29,7 +29,7 @@ class AuctionController extends AbstractController
             'controller_name' => 'AuctionController',
         ]);
     }
-   
+
     /**
      * @Route("/auction/create", name="create")
      */
@@ -46,12 +46,12 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
-            $auction = new Auction();
-            $auction->setName($data['name']);
-            $auction->setMinPrice($data['minPrice']);
-
-            $dm->persist($auction);
-            $dm->flush();
+//            $auction = new Auction();
+//            $auction->setName($data['name']);
+//            $auction->setMinPrice($data['minPrice']);
+//
+//            $dm->persist($auction);
+//            $dm->flush();
 
         }
 
