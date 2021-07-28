@@ -78,6 +78,17 @@ class AuctionController extends AbstractController
             ->add('send', SubmitType::class)
             ->getForm();
 
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            //here will be method, that saving data from form in base(array)
+            $data = $form->getData();
+            $auction->setBets($data['bet']);
+
+
+            $dm->persist($auction);
+            $dm->flush();
+        }
 
         //$form->handleRequest($request);
         return $this->render('/auction/bet/form_create.html.twig', [
