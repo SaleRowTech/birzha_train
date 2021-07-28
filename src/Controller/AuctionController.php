@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 
@@ -32,7 +32,7 @@ class AuctionController extends AbstractController
     public function create(Request $request, DocumentManager $dm): Response
     {
         $form = $this->createFormBuilder()
-            ->add('name', IntegerType::class)
+            ->add('name', TextType::class)
             ->add('minPrice', IntegerType::class)
             ->add('send', SubmitType::class)
             ->getForm();
