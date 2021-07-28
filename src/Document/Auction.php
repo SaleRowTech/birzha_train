@@ -127,7 +127,7 @@ class Auction
      */
     public function setBets($bets): self
     {
-        $this->bets = $bets;
+        $this->bets += $bets;
 
         return $this;
     }
