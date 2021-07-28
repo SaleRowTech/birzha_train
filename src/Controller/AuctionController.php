@@ -89,39 +89,39 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
-//            $message = new AddBet($data);
-//            $messageBus->dispatch($message);
+            $message = new AddBet($data, $user, $id);
+            $messageBus->dispatch($message);
 
 
-            $date = new \DateTime('@'.strtotime('now'));
-            $unique = Uuid::uuid4();
-            $array = [
-                (string)$unique =>[
-                    "bet" => $data['bet'],
-                    "date"=> $date,
-                    "user" => $user->getId(),
-                ]
-            ];
-            //dd(json_encode($array));
-            $bets = json_decode($auction->getBets());
-            //dd($bets);
-            if ($bets === null){
-                $collection = $array;
-            }else{
-                //dd($bets);
-                $collectionBefore = [
-                    array_merge($array, (array)$bets)
-                ];
-                $collection=$collectionBefore[0];
-            }
-
-
-            //dd($collection);
-            $auction->setBets(json_encode($collection));
-
-
-            $dm->persist($auction);
-            $dm->flush();
+//            $date = new \DateTime('@'.strtotime('now'));
+//            $unique = Uuid::uuid4();
+//            $array = [
+//                (string)$unique =>[
+//                    "bet" => $data['bet'],
+//                    "date"=> $date,
+//                    "user" => $user->getId(),
+//                ]
+//            ];
+//            //dd(json_encode($array));
+//            $bets = json_decode($auction->getBets());
+//            //dd($bets);
+//            if ($bets === null){
+//                $collection = $array;
+//            }else{
+//                //dd($bets);
+//                $collectionBefore = [
+//                    array_merge($array, (array)$bets)
+//                ];
+//                $collection=$collectionBefore[0];
+//            }
+//
+//
+//            //dd($collection);
+//            $auction->setBets(json_encode($collection));
+//
+//
+//            $dm->persist($auction);
+//            $dm->flush();
         }
 
         //$form->handleRequest($request);
