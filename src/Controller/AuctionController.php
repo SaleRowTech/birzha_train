@@ -33,7 +33,7 @@ class AuctionController extends AbstractController
     {
         $form = $this->createFormBuilder()
             ->add('name', IntegerType::class)
-            ->add('minPrice', PasswordType::class)
+            ->add('minPrice', IntegerType::class)
             ->add('send', SubmitType::class)
             ->getForm();
 
@@ -42,12 +42,12 @@ class AuctionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //here will be method, that saving data from form in base(array)
             $data = $form->getData();
-//            $auction = new Auction();
-//            $auction->setName($data['name']);
-//            $auction->setMinPrice($data['minPrice']);
-//
-//            $dm->persist($auction);
-//            $dm->flush();
+            $auction = new Auction();
+            $auction->setName($data['name']);
+            $auction->setMinPrice($data['minPrice']);
+
+            $dm->persist($auction);
+            $dm->flush();
 
         }
 
