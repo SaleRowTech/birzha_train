@@ -3,22 +3,13 @@
 {% block body %}
 {#{{ dump(bets) }}#}
 
-
-
-{#        <li>{{ value.bet }}</li>#}
-{#        <li>{{ value.date }}</li>#}
-
-
-
     {% for key, bet in bets %}
-        <li>{{ key }}: {{ bet.bet|e }}</li>
+        <h3>id - {{ key }}</h3>
+        <h3>Amount - {{ bet.bet }}</h3>
+        <h3>Date - {{ bet.date }}</h3>
     {% endfor %}
-{#{{ dump(bets) }}#}
-{#    {% for value in bets %}#}
-{#    {{ dump(value) }}#}
 
-{#        <h3>Amount - {{ value.bet }}</h3>#}
-{#        <h3>Date - {{ value.date }}</h3>#}
+
         <a href="/auction">К списку Аукционов</a>
 
 
