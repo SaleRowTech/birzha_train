@@ -5,6 +5,7 @@
     {% for key, value in bets %}
         {% for key, item in value %}
         <li>{{ key }}</li>
+        <li>{{ item.bet }}</li>
 {#        <li>{{ value.bet }}</li>#}
 {#        <li>{{ value.date }}</li>#}
         {% endfor %}
